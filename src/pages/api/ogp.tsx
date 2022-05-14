@@ -1,4 +1,4 @@
-import fs from "node:fs";
+import { readFileSync } from "node:fs";
 import path from "node:path";
 import type { NextApiRequest, NextApiResponse } from "next";
 import * as chromium from "playwright-aws-lambda";
@@ -7,14 +7,14 @@ import { OgpTemplate } from "~/components/ogp";
 import type { OgpInfo } from "~/components/ogp";
 
 const iconPath = path.join(process.cwd() ,"..", "rintaro.webp");
-// eslint-disable-next-line security/detect-non-literal-fs-filename
-const icon: string = fs.readFileSync(iconPath, "base64");
+// eslint-disable-next-line unicorn/prefer-module, n/no-path-concat
+const icon: string = readFileSync(`${__dirname}/../rintaro.webp`, "base64");
 const monopath = path.join(process.cwd(), "..", "fonts/RobotoMono-Medium.woff2");
-// eslint-disable-next-line security/detect-non-literal-fs-filename
-const mono = fs.readFileSync(monopath).toString("base64");
+// eslint-disable-next-line unicorn/prefer-module, n/no-path-concat
+const mono = readFileSync(`${__dirname}/../fonts/RobotoMono-Medium.woff2`).toString("base64");
 const notopath = path.join(process.cwd(), "..", "fonts/NotoSansJp-Bold.woff2");
-// eslint-disable-next-line security/detect-non-literal-fs-filename
-const noto = fs.readFileSync(notopath).toString("base64");
+// eslint-disable-next-line unicorn/prefer-module, n/no-path-concat
+const noto = readFileSync(`${__dirname}/../fonts/NotoSansJp-Bold.woff2`).toString("base64");
 const style = `
 @font-face {
   font-family: "Noto Sans JP";
