@@ -11,7 +11,9 @@ class Document extends NextDocument {
   render(): ReactElement {
     return (
       <Html lang="ja">
-        <Head />
+        <Head>
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
         <body>
           <Main />
           <NextScript />
