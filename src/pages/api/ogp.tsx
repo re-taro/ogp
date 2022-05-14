@@ -6,11 +6,16 @@ import ReactDomServer from "react-dom/server";
 import { OgpTemplate } from "~/components/ogp";
 import type { OgpInfo } from "~/components/ogp";
 
-const basePath = "./public";
-const iconPath = path.join(basePath, "/rintaro.webp");
+const iconPath = path.join(process.cwd(), "public/rintaro.webp");
 // eslint-disable-next-line security/detect-non-literal-fs-filename
 const icon: string = fs.readFileSync(iconPath, "base64");
-const notopath = path.join(basePath, "/fonts/NotoSansJp-Bold.woff2");
+const monopath = path.join(
+  process.cwd(),
+  "public/fonts/RobotoMono-Medium.woff2"
+);
+// eslint-disable-next-line security/detect-non-literal-fs-filename
+const mono = fs.readFileSync(monopath).toString("base64");
+const notopath = path.join(process.cwd(), "public/fonts/NotoSansJp-Bold.woff2");
 // eslint-disable-next-line security/detect-non-literal-fs-filename
 const noto = fs.readFileSync(notopath).toString("base64");
 const style = `
@@ -21,11 +26,19 @@ const style = `
   src: url(data:font/woff2;charset=utf-8;base64,${noto}) format("woff2");
   font-display: swap;
 }
+@font-face {
+  font-family: "Roboto Mono";
+  font-style: normal;
+  font-weight: 500;
+  src: url(data:font/woff2;charset=utf-8;base64,${mono}) format("woff2");
+  font-display: swap;
+}
 * {
   margin: 0;
   padding: 0;
 }
-html, body {
+html,
+body {
   width: 100%;
   height: 100%;
   background: #2e3440;
@@ -51,7 +64,7 @@ body {
   display: grid;
   grid-template-rows: 280px 100px;
   grid-template-columns: 700px 250px;
-  grid-template-areas: "Title Title" "Name";
+  grid-template-areas: "Title Title" "Name Date";
 }
 #Wrapper #Title {
   font-size: 60px;
@@ -75,6 +88,13 @@ body {
 #Wrapper #Name img {
   margin-right: 20px;
   border-radius: 50%;
+}
+#Wrapper #Date {
+  grid-area: Date;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  font-family: "Roboto Mono", monospace;
 }
 `;
 
@@ -100,7 +120,9 @@ const Ogp = async (request: NextApiRequest, response: NextApiResponse) => {
       "Accept-Language": "ja-JP",
     });
     const title = request.query.title ?? "";
+    const date = request.query.date ?? "";
     const ogpinfo: OgpInfo = {
+      date: date.toString(),
       icon,
       style,
       title: title.toString(),
