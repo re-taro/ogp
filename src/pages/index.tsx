@@ -1,5 +1,3 @@
-import Image from 'next/image'
-
 const Home = () => (
   <div style={{ color: "#222", margin: "0 auto", maxWidth: "700px" }}>
     <h1>This is OGP Server for Rintaro!</h1>
@@ -13,7 +11,8 @@ const Home = () => (
     </ul>
     <h2>Sample</h2>
     <p>https://ogp.re-taro.dev/api/ogp?title=ogp.re-taro.dev</p>
-    <Image src={"https://ogp.re-taro.dev/api/ogp?title=ogp.re-taro.dev"} width={"100%"} />
+    {/* eslint-disable-next-line @next/next/no-img-element */}
+    <img src={"https://ogp.re-taro.dev/api/ogp?title=ogp.re-taro.dev"} width={"100%"} />
   </div>
 );
 
