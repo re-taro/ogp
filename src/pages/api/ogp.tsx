@@ -8,13 +8,13 @@ import type { OgpInfo } from "~/components/ogp";
 
 const iconPath = path.join(process.cwd(), "rintaro.webp");
 // eslint-disable-next-line security/detect-non-literal-fs-filename
-const icon: string = fs.readFileSync(iconPath, "base64");
+const icon: string = fs.readFileSync("/rintaro.webp", "base64");
 const monopath = path.join(process.cwd(), "fonts/RobotoMono-Medium.woff2");
 // eslint-disable-next-line security/detect-non-literal-fs-filename
-const mono = fs.readFileSync(monopath).toString("base64");
+const mono = fs.readFileSync("/fonts/RobotoMono-Medium.woff2").toString("base64");
 const notopath = path.join(process.cwd(), "fonts/NotoSansJp-Bold.woff2");
 // eslint-disable-next-line security/detect-non-literal-fs-filename
-const noto = fs.readFileSync(notopath).toString("base64");
+const noto = fs.readFileSync("/fonts/NotoSansJp-Bold.woff2").toString("base64");
 const style = `
 @font-face {
   font-family: "Noto Sans JP";
