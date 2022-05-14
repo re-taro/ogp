@@ -6,13 +6,13 @@ import ReactDomServer from "react-dom/server";
 import { OgpTemplate } from "~/components/ogp";
 import type { OgpInfo } from "~/components/ogp";
 
-const iconPath = path.join("..", "rintaro.webp");
+const iconPath = path.join(process.cwd() ,"..", "rintaro.webp");
 // eslint-disable-next-line security/detect-non-literal-fs-filename
 const icon: string = fs.readFileSync(iconPath, "base64");
-const monopath = path.join("..", "fonts/RobotoMono-Medium.woff2");
+const monopath = path.join(process.cwd(), "..", "fonts/RobotoMono-Medium.woff2");
 // eslint-disable-next-line security/detect-non-literal-fs-filename
 const mono = fs.readFileSync(monopath).toString("base64");
-const notopath = path.join("..", "fonts/NotoSansJp-Bold.woff2");
+const notopath = path.join(process.cwd(), "..", "fonts/NotoSansJp-Bold.woff2");
 // eslint-disable-next-line security/detect-non-literal-fs-filename
 const noto = fs.readFileSync(notopath).toString("base64");
 const style = `
