@@ -3,10 +3,5 @@
   "public": false,
   "github": {
     "enabled": false
-  },
-  "functions": {
-    "api/ogp.js": {
-      "includeFiles": "public/**"
-    }
   }
 }
