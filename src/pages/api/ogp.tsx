@@ -1,6 +1,6 @@
-// eslint-disable-next-line unicorn/prefer-node-protocol
+/* eslint-disable security/detect-non-literal-fs-filename, unicorn/prefer-node-protocol */
+
 import fs from "fs";
-// eslint-disable-next-line unicorn/prefer-node-protocol
 import path from "path";
 import type { NextApiRequest, NextApiResponse } from "next";
 import * as chromium from "playwright-aws-lambda";
@@ -95,7 +95,7 @@ body {
 }
 `;
 
-// eslint-disable-next-line max-statements,max-lines-per-function
+// eslint-disable-next-line max-statements
 const Ogp = async (request: NextApiRequest, response: NextApiResponse) => {
   try {
     const playwrightArguments = {
@@ -140,3 +140,5 @@ const Ogp = async (request: NextApiRequest, response: NextApiResponse) => {
 };
 
 export default Ogp;
+
+/* eslint-enable */
