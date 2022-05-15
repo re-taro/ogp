@@ -6,7 +6,7 @@ on:
       - main
 
 env:
-  node-version: 14
+  node-version: 12
   pnpm-version: latest
 
 jobs:
