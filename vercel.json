@@ -3,5 +3,10 @@
   "public": false,
   "github": {
     "enabled": false
+  },
+  "functions": {
+    "api/ogp.tsx": {
+      "includeFiles": "public/**"
+    }
   }
 }
