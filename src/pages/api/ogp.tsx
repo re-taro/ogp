@@ -1,33 +1,12 @@
-import { readFileSync } from "node:fs";
-import { join, resolve } from "node:path";
 import type { NextApiRequest, NextApiResponse } from "next";
 import * as chromium from "playwright-aws-lambda";
 import ReactDomServer from "react-dom/server";
 import { OgpTemplate } from "~/components/ogp";
 import type { OgpInfo } from "~/components/ogp";
 
-const baseFullPath = resolve("./")
-const iconPath = join(baseFullPath, "public/rintaro.webp");
-const icon: string = readFileSync(iconPath, "base64");
-const monopath = join(baseFullPath, "public/fonts/RobotoMono-Medium.woff2");
-const mono = readFileSync(monopath).toString("base64");
-const notopath = join(baseFullPath, "public/fonts/NotoSansJp-Bold.woff2");
-const noto = readFileSync(notopath).toString("base64");
+// eslint-disable-next-line no-secrets/no-secrets
 const style = `
-@font-face {
-  font-family: "Noto Sans JP";
-  font-style: normal;
-  font-weight: bold;
-  src: url(data:font/woff2;charset=utf-8;base64,${noto}) format("woff2");
-  font-display: swap;
-}
-@font-face {
-  font-family: "Roboto Mono";
-  font-style: normal;
-  font-weight: 500;
-  src: url(data:font/woff2;charset=utf-8;base64,${mono}) format("woff2");
-  font-display: swap;
-}
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@700&family=Roboto+Mono:wght@500&display=swap');
 * {
   margin: 0;
   padding: 0;
@@ -118,7 +97,6 @@ const Ogp = async (request: NextApiRequest, response: NextApiResponse) => {
     const date = request.query.date ?? "";
     const ogpinfo: OgpInfo = {
       date: date.toString(),
-      icon,
       style,
       title: title.toString(),
     };

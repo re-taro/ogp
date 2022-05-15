@@ -3,11 +3,10 @@ import React from "react";
 export interface OgpInfo {
   title: string;
   date: string;
-  icon: string;
   style: string;
 }
 
-const OgpTemplate: React.FC<OgpInfo> = ({ title, date, icon, style }) => (
+const OgpTemplate: React.FC<OgpInfo> = ({ title, date, style }) => (
   <html lang="ja">
     {/* eslint-disable-next-line @next/next/no-head-element */}
     <head>
@@ -19,8 +18,8 @@ const OgpTemplate: React.FC<OgpInfo> = ({ title, date, icon, style }) => (
           <p>{title}</p>
         </h1>
         <div id="Name">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={`data:image/webp;base64,${icon}`} alt="icon" width={100} height={100} />
+          {/* eslint-disable-next-line @next/next/no-img-element, no-secrets/no-secrets */}
+          <img src={"https://res.cloudinary.com/re-taro/image/upload/v1652619915/ogp/rintaro_vlrzsy.webp"} alt="icon" width={100} height={100} />
           <h2 id="Host">
             <p>re-taro.dev</p>
           </h2>
