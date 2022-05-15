@@ -6,8 +6,8 @@ on:
       - main
 
 env:
-  node-version: 12
-  pnpm-version: 6
+  node-version: 16
+  pnpm-version: latest
 
 jobs:
   run-type-check:
