@@ -1,7 +1,13 @@
 {
+  "$schema": "https://openapi.vercel.sh/vercel.json",
   "version": 2,
   "public": false,
   "github": {
     "enabled": false
+  },
+  "functions": {
+    "src/pages/api/ogp/index.tsx": {
+      "includeFiles": "src/pages/api/_static/**"
+    }
   }
 }
