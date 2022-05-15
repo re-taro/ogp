@@ -7,11 +7,11 @@ import { OgpTemplate } from "~/components/ogp";
 import type { OgpInfo } from "~/components/ogp";
 
 const baseFullPath = resolve("./")
-const iconPath = join(baseFullPath, "rintaro.webp");
+const iconPath = join(baseFullPath, "public/rintaro.webp");
 const icon: string = readFileSync(iconPath, "base64");
-const monopath = join(baseFullPath, "fonts/RobotoMono-Medium.woff2");
+const monopath = join(baseFullPath, "public/fonts/RobotoMono-Medium.woff2");
 const mono = readFileSync(monopath).toString("base64");
-const notopath = join(baseFullPath, "fonts/NotoSansJp-Bold.woff2");
+const notopath = join(baseFullPath, "public/fonts/NotoSansJp-Bold.woff2");
 const noto = readFileSync(notopath).toString("base64");
 const style = `
 @font-face {
@@ -130,7 +130,9 @@ const Ogp = async (request: NextApiRequest, response: NextApiResponse) => {
     response.setHeader("Cache-Control", "s-maxage=5256000, stale-while-revalidate");
     response.setHeader("Content-Type", "image/png");
     response.end(image);
-  } catch {
+  } catch (error) {
+    // eslint-disable-next-line no-console
+    console.error("[Error]:", error);
     response.status(500).send("Internal Server Error");
   }
 };
