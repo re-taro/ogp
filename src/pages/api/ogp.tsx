@@ -1,16 +1,17 @@
 import { readFileSync } from "node:fs";
-import { resolve } from "node:path";
+import { resolve, join } from "node:path";
 import type { NextApiRequest, NextApiResponse } from "next";
 import * as chromium from "playwright-aws-lambda";
 import ReactDomServer from "react-dom/server";
 import { OgpTemplate } from "~/components/ogp";
 import type { OgpInfo } from "~/components/ogp";
 
-const iconPath = resolve("./public/rintaro.webp");
+const baseFullPath = resolve("./");
+const iconPath = join(baseFullPath, "public/rintaro.webp");
 const icon: string = readFileSync(iconPath, "base64");
-const monopath = resolve("./public/fonts/RobotoMono-Medium.woff2");
+const monopath = join(baseFullPath, "public/fonts/RobotoMono-Medium.woff2");
 const mono = readFileSync(monopath).toString("base64");
-const notopath = resolve("./public/fonts/NotoSansJp-Bold.woff2");
+const notopath = join(baseFullPath, "public/fonts/NotoSansJp-Bold.woff2");
 const noto = readFileSync(notopath).toString("base64");
 const style = `
 @font-face {
