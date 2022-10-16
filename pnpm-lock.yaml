@@ -7,9 +7,9 @@ specifiers:
   eslint: 8.25.0
   eslint-config-re-taro: 1.2.0
   next: 12.3.1
-  playwright: 1.27.0
+  playwright: 1.27.1
   playwright-aws-lambda: 0.9.0
-  playwright-core: 1.27.0
+  playwright-core: 1.27.1
   prettier: 2.7.1
   react: 18.2.0
   react-dom: 18.2.0
@@ -17,9 +17,9 @@ specifiers:
 
 dependencies:
   next: 12.3.1_biqbaboplfbrettd7655fr4n2y
-  playwright: 1.27.0
-  playwright-aws-lambda: 0.9.0_playwright-core@1.27.0
-  playwright-core: 1.27.0
+  playwright: 1.27.1
+  playwright-aws-lambda: 0.9.0_playwright-core@1.27.1
+  playwright-core: 1.27.1
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
 
@@ -4526,29 +4526,29 @@ packages:
       find-up: 4.1.0
     dev: true
 
-  /playwright-aws-lambda/0.9.0_playwright-core@1.27.0:
+  /playwright-aws-lambda/0.9.0_playwright-core@1.27.1:
     resolution: {integrity: sha512-MnzLTZ4B9I4JdWJ+eq7BbrhFjL6VyT0bF+ccNjBCwjwlBNQaTEXOcrkAe+p8YkOXnYUqBbsrZj5Ene8PqKosiw==}
     engines: {node: '>= 8.0.0'}
     peerDependencies:
       playwright-core: ^1
     dependencies:
       lambdafs: 2.1.1
-      playwright-core: 1.27.0
+      playwright-core: 1.27.1
     dev: false
 
-  /playwright-core/1.27.0:
-    resolution: {integrity: sha512-VBKaaFUVKDo3akW+o4DwbK1ZyXh46tcSwQKPK3lruh8IJd5feu55XVZx4vOkbb2uqrNdIF51sgsadYT533SdpA==}
+  /playwright-core/1.27.1:
+    resolution: {integrity: sha512-9EmeXDncC2Pmp/z+teoVYlvmPWUC6ejSSYZUln7YaP89Z6lpAaiaAnqroUt/BoLo8tn7WYShcfaCh+xofZa44Q==}
     engines: {node: '>=14'}
     hasBin: true
     dev: false
 
-  /playwright/1.27.0:
-    resolution: {integrity: sha512-F+0+0RD03LS+KdNAMMp63OBzu+NwYYLd52pKLczuSlTsV5b/SLkUoNhSfzDFngEFOuRL2gk0LlfGW3mKiUBk6w==}
+  /playwright/1.27.1:
+    resolution: {integrity: sha512-xXYZ7m36yTtC+oFgqH0eTgullGztKSRMb4yuwLPl8IYSmgBM88QiB+3IWb1mRIC9/NNwcgbG0RwtFlg+EAFQHQ==}
     engines: {node: '>=14'}
     hasBin: true
     requiresBuild: true
     dependencies:
-      playwright-core: 1.27.0
+      playwright-core: 1.27.1
     dev: false
 
   /pluralize/8.0.0:
