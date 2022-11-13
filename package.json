@@ -21,7 +21,7 @@
     "type": "tsc --noEmit"
   },
   "dependencies": {
-    "next": "12.3.2",
+    "next": "12.3.3",
     "playwright": "1.27.1",
     "playwright-aws-lambda": "0.9.0",
     "playwright-core": "1.27.1",
